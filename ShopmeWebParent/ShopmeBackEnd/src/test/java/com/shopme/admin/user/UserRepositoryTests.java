@@ -34,4 +34,18 @@ public class UserRepositoryTests {
 		
 		assertThat(savedUser.getId()).isGreaterThan(0);
 	}
+	
+	@Test
+	public void testCreateUserWithTwoRoles() {
+		User userJohn = new User("john@doe.com", "123456", "John", "Doe");
+		Role roleEditor = new Role(3);
+		Role roleAssistant = new Role(5);
+		
+		userJohn.addRole(roleEditor);
+		userJohn.addRole(roleAssistant);
+		
+		User savedUser = repo.save(userJohn);
+		
+		assertThat(savedUser.getId()).isGreaterThan(0);
+	}
 }
