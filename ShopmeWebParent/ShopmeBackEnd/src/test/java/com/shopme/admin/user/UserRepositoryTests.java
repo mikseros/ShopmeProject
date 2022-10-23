@@ -2,6 +2,8 @@ package com.shopme.admin.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -47,5 +49,11 @@ public class UserRepositoryTests {
 		User savedUser = repo.save(userJohn);
 		
 		assertThat(savedUser.getId()).isGreaterThan(0);
+	}
+	
+	@Test
+	public void testListAllUsers() {
+		Iterable<User> listUsers = repo.findAll();
+		listUsers.forEach(user -> System.out.println(user));
 	}
 }
