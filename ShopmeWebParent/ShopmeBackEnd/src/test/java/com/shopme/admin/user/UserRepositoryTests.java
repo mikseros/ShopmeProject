@@ -56,4 +56,11 @@ public class UserRepositoryTests {
 		Iterable<User> listUsers = repo.findAll();
 		listUsers.forEach(user -> System.out.println(user));
 	}
+	
+	@Test
+	public void testGetUserById() {
+		User userMikseros = repo.findById(1).get();
+		System.out.println(userMikseros);
+		assertThat(userMikseros).isNotNull();
+	}
 }
