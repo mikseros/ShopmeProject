@@ -40,6 +40,7 @@ public class UserController {
 	@PostMapping("/users/save")
 	public String saveUser(User user) {
 		System.out.println(user);
+		service.save(user);
 		return "redirect:/users";
 	}
 }
