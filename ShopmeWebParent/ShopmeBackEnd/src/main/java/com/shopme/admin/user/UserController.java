@@ -30,6 +30,7 @@ public class UserController {
 		List<Role> listRoles = service.listRoles();
 		
 		User user = new User();
+		user.setEnabled(true);
 		model.addAttribute("user" ,user);
 		model.addAttribute("listRoles" ,listRoles);
 		
