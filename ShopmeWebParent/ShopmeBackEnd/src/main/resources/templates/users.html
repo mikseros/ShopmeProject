@@ -90,8 +90,16 @@
 						<td>[[${user.firstName}]]</td>
 						<td>[[${user.lastName}]]</td>
 						<td>[[${user.roles}]]</td>
-						<td>[[${user.enabled}]]</td>
-						<td> Edit Delete</td>
+						<td>
+							<a href=""><i th:if="${user.enabled == true}" class="fa-solid fa-circle-check fa-xl icon-green"></i></a>
+							<a href=""><i th:if="${user.enabled == false}" class="fa-solid fa-circle-check fa-xl icon-dark"></i></a>
+						</td>
+						<td>
+							<a href=""><i class="fa-solid fa-pen-to-square fa-xl icon-green" title="Edit"></i></a>
+							&nbsp;
+							<a href=""><i class="fa-solid fa-trash fa-xl icon-dark" title="Delete"></i></a>
+						
+						</td>
 					</tr>
 				</tbody>
 			</table>
