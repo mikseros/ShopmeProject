@@ -159,6 +159,8 @@
 					form.submit();
 				} else if (response == "Duplicated") {
 					showModalDialog("Warning", "Another user is using email " + userEmail);
+				} else {
+					showModalDialog("Error", "Unknown message from the server");
 				}
 			});
 			
