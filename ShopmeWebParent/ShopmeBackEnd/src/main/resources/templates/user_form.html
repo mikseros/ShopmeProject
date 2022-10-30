@@ -154,19 +154,21 @@
 			csrfValue = $("input[name = '_csrf']").val();
 			params = {email: userEmail, _csrf: csrfValue};
 			
-			$("#modalDialog").modal();
-			
-			if (true) return false;
-			
 			$.post(url, params, function(response) {
 				if (response == "OK") {
 					form.submit();
 				} else if (response == "Duplicated") {
-					alert("There is another user having this email " + userEmail);
+					showModalDialog("Warning", "Another user is using email " + userEmail);
 				}
 			});
 			
 			return false;
+		}
+		
+		function showModalDialog(title, message) {
+			$("#modalTitle").text(title);
+			$("#modalBody").text(message);
+			$("#modalDialog").modal();
 		}
 	</script>
 </body>
