@@ -162,6 +162,8 @@
 				} else {
 					showModalDialog("Error", "Unknown message from the server");
 				}
+			}).fail(function() {
+				showModalDialog("Error", "Could not connect to the server");
 			});
 			
 			return false;
