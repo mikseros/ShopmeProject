@@ -35,6 +35,7 @@ public class UserController {
 		user.setEnabled(true);
 		model.addAttribute("user" ,user);
 		model.addAttribute("listRoles" ,listRoles);
+		model.addAttribute("pageTitle", "Create New User");
 		
 		return "user_form";
 	}
@@ -55,6 +56,7 @@ public class UserController {
 		try {
 			User user = service.get(id);
 			model.addAttribute("user", user);
+			model.addAttribute("pageTitle", "Edit User (ID: " + id + ")");
 			
 			return "user_form";
 		} catch (UserNotFoundException ex) {
