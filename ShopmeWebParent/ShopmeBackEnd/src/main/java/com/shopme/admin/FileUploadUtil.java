@@ -7,6 +7,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
+import org.hibernate.internal.build.AllowSysOut;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploadUtil {
@@ -24,6 +25,24 @@ public class FileUploadUtil {
 			Files.copy(inputStream, filePath, StandardCopyOption.REPLACE_EXISTING);
 		} catch (IOException ex) {
 			throw new IOException("Could not save file: " +fileName, ex);
+		}
+	}
+	
+	public static void cleanDirectory(String dir) {
+		Path dirPath = Paths.get(dir);
+		
+		try {
+			Files.list(dirPath).forEach(file -> {
+				if (!Files.isDirectory(file)) {
+					try {
+						Files.delete(file);
+					} catch (IOException ex) {
+						System.out.println("Coiuld not delete file: " + file);
+					}
+				}
+			});
+		} catch (IOException ex) {
+			System.out.println("Could not list directory: " + dirPath);
 		}
 	}
 }
