@@ -72,7 +72,20 @@
 			<table class="table table-bordered table-striped table-hover table-responsive-xl">
 				<thead class="thead-dark">
 					<tr>
-						<th>User ID</th>
+						<th>
+							<a th:if="${sortField != 'id'}" class="text-white"
+							   th:href="@{${currentPage} + '?sortField=id&sortDir=' + ${sortDir}}">
+							   User ID
+							</a>
+							<a th:if="${sortField == 'id'}" class="text-white"
+							   th:href="@{${currentPage} + '?sortField=id&sortDir=' + ${reverseSortDir}}">
+							   User ID
+							</a>
+							<span th:if="${sortField == 'id'}"
+								  th:class="${sortDir == 'asc' ? 'fas fa-sort-up' : 'fas fa-sort-down'}">
+							</span>
+						</th>
+						
 						<th>Photos</th>
 						<th>E-mail</th>
 						
