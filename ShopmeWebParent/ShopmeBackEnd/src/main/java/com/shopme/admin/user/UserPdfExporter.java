@@ -41,10 +41,23 @@ public class UserPdfExporter extends AbstractExporter {
 		table.setSpacingBefore(10);
 		
 		writeTableHeader(table);
+		writeTableData(table, listUsers);
 		
 		document.add(table);
 		
 		document.close();
+	}
+
+	private void writeTableData(PdfPTable table, List<User> listUsers) {
+		for (User user : listUsers) {
+			table.addCell(String.valueOf(user.getId()));
+			table.addCell(user.getEmail());
+			table.addCell(user.getFirstName());
+			table.addCell(user.getLastName());
+			table.addCell(user.getRoles().toString());
+			table.addCell(String.valueOf(user.isEnabled()));
+		}
+		
 	}
 
 	private void writeTableHeader(PdfPTable table) {
