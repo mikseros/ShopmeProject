@@ -15,16 +15,28 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 	
+//	@Bean
+//	public WebSecurity configure(WebSecurity web) {
+//		web.ignoring().antMatchers("/images/**", "/js/**", "/webjars/**");
+//		return web;
+//	}
+	
+	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 //		http.authorizeRequests().antMatchers("/login").permitAll();
+		http.authorizeRequests().antMatchers("/images/**", "/js/**", "/webjars/**").permitAll();
 		http.authorizeRequests()
 			.anyRequest().authenticated()
 			.and()
 			.formLogin()
 				.loginPage("/login")
+				.usernameParameter("email")
 				.permitAll();
+			
 		return http.build();
 	}
-
+	
 }
+
+
