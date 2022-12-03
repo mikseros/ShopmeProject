@@ -2,22 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
 >
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<meta name="viewport" content="width=device-width">
-	<title>Home - Shopme Admin</title>
-	<link rel="stylesheet" type="text/css" th:href="@{/fontawesome/all.css}" />
-	<link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
-	<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
-	<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-	<script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-</head>
+<head th:replace="fragments :: page_head('Home - Shopme Admin')" />
 <body>
 	<div class="container-fluid">
 		<div>
-		<form th:action="@{/logout}" method="POST" th:hidden="true" name="LogoutForm">
-			<input type="submit" />
-		</form>
+			<form th:action="@{/logout}" method="POST" th:hidden="true" name="LogoutForm">
+				<input type="submit" />
+			</form>
 			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
 				<a class="navbar-brand" th:href="@{/}">
 					<img th:src="@{/images/ShopmeAdminSmall.png}" />
