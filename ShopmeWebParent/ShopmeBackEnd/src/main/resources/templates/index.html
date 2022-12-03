@@ -10,17 +10,15 @@
 			<h1>Shopme Control Panel</h1>
 		</div>
 		
-		<div>
-			<p>Shopme Control Panel - Copyright &copy; Shopme</p>
-		</div>
+		<div th:replace="fragments :: footer" />
 	</div>
-	<script type="text/javascript">
+	<script> type="text/javascript">
 		$(document).ready(function() {
 			$("#LogoutLink").on("click", function(e) {
 				e.preventDefault();
 				document.LogoutForm.submit();
 			});
 		});
-	</script
+	</script>
 </body>
 </html>
