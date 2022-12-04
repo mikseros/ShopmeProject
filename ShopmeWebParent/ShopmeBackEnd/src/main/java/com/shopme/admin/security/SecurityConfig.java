@@ -62,7 +62,10 @@ public class SecurityConfig {
 				.usernameParameter("email")
 				.permitAll()
 			.and().logout().permitAll()
-			.and().rememberMe().key("AbcDefgHijKlmnOpqrs_0123456789");
+			.and()
+				.rememberMe()
+					.key("AbcDefgHijKlmnOpqrs_0123456789")
+					.tokenValiditySeconds(7 * 24 * 60 * 60);
 			
 		return http.build();
 	}
