@@ -61,7 +61,8 @@ public class SecurityConfig {
 				.loginPage("/login")
 				.usernameParameter("email")
 				.permitAll()
-			.and().logout().permitAll();
+			.and().logout().permitAll()
+			.and().rememberMe();
 			
 		return http.build();
 	}
