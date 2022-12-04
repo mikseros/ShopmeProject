@@ -62,7 +62,7 @@ public class SecurityConfig {
 				.usernameParameter("email")
 				.permitAll()
 			.and().logout().permitAll()
-			.and().rememberMe();
+			.and().rememberMe().key("AbcDefgHijKlmnOpqrs_0123456789");
 			
 		return http.build();
 	}
