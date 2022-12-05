@@ -3,4 +3,12 @@ $(document).ready(function() {
 		e.preventDefault();
 		document.LogoutForm.submit();
 	});
+	
+	customizeDropDownMenu();
 });
+
+function customizeDropDownMenu() {
+	$(".dropdown > a").click(function() {
+		location.href = this.href;
+	});
+}
