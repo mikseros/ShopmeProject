@@ -5,7 +5,7 @@
 <head th:replace="fragments :: page_head('Users - Shopme Admin')" />
 <body>
 	<div class="container-fluid">
-		<div th:replace="navigation :: menu" />
+		<div th:replace="navigation :: menu"></div>
 		<div>
 			<h2>Manage Users</h2>
 			<a th:href="@{/users/new}" class="fas fa-user-plus fa-2x icon-dark mr-2" title="Create New User"></a>
@@ -173,7 +173,7 @@
 			</div>
 		</div>
 		
-		<div th:replace="fragments :: footer" />
+		<div th:replace="fragments :: footer"></div>
 	</div>
 	<script type="text/javascript">
 		$(document).ready(function() {
